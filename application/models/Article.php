@@ -11,7 +11,7 @@ class Article extends CI_Model {
         return $query->result();
         */
         $query = $this->db->get('article');
-        return $query->result();
+        return $query->result(get_class($this));
     }
 
     public function findById($id)
@@ -23,6 +23,12 @@ class Article extends CI_Model {
     public function ajouter($data)
     {
         $this->db->insert("article", $data);
+    }
+
+
+    public function otherFunction()
+    {
+        return "other function";
     }
 
 }
